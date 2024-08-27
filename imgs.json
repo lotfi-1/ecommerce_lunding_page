@@ -1,0 +1,26 @@
+{
+    "phones": [
+        "images/phones/phone-1-p1555.png",
+        "images/phones/phone-1-p700.png",
+        "images/phones/phone-1-p850.png",
+        "images/phones/phone-1-p1400.png"
+    ],
+    "shoes": [
+        "images/shoes/shoes-1-p200.png",
+        "images/shoes/shoes-1-p150.png",
+        "images/shoes/shoes-1-p300.png",
+        "images/shoes/shoes-1-p325.png"
+    ],
+    "shirts": [
+        "images/shirt/shirt-1-p99.png",
+        "images/shirt/shirt-1-p110.png",
+        "images/shirt/shirt-1-p79.png",
+        "images/shirt/shirt-1-p95.png"
+    ],
+    "watches": [
+        "images/watches/wtch-1-p1200.png",
+        "images/watches/wtch-1-p400.png",
+        "images/watches/wtch-1-p550.png",
+        "images/watches/wtch-1-p1400.png"
+    ]
+}

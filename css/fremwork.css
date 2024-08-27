@@ -1,0 +1,416 @@
+.flex{
+    display: flex;
+    align-items: center;
+    gap: 0 5px
+}
+.flex-10{
+    display: flex;
+    gap: 0 10px;
+    align-items: center;
+}
+.pad-10{
+    padding: 10px;
+}
+.flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.up::before{
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: transparent transparent var(--white-gold) transparent;
+    position: absolute;
+}
+
+
+#btn{
+    width: 21px;
+    height: 21px;
+    background-color: transparent;
+    z-index: 6;
+    position: relative;
+}
+#btn span{
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: var(--background);
+    transition:  0.3s;
+    left: 0;
+}
+#btn span:first-child{
+    top: 0;
+}
+#btn span:nth-child(2){
+    top: 9px;
+}
+#btn span:last-child{
+    top: 18px;
+}
+
+.message{
+    background: var(--background); 
+    color: var(--darkBlue);
+    font-size: 12px;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    padding: 2px 5px;
+    opacity: 0;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.message::before{
+    border-width: 5px;
+    top: -10px;
+    right: 10px;
+}
+
+.list{
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    flex-direction: column;
+    opacity: 0;
+    width: 100px;
+    background-color: var(--blue);
+    z-index: 5;
+    border-radius: 10px;
+}
+.list li{
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.box{
+    background: var(--soft-h);
+    width:275px;
+	height:400px;
+    overflow: hidden;
+    position: relative;
+    transition: 0.1s ease-out;
+}
+
+.box .front-side .photo{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 310px;
+}
+
+.box .front-side .photo i {
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 25px;
+    color: var(--soft);
+    z-index: 2;
+    transition: var(--timing);
+}
+.box .front-side .photo i:hover{
+    color: var(--red);
+}
+.box .front-side .photo img{
+    width: 200px;
+    height: 200px;
+    transition: var(--timing);
+}
+.box .front-side .view{
+    opacity: 0;
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 250px;
+    width: 100%;
+    transition: var(--transition);
+}
+.box .front-side .view::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--red);
+    opacity: 0.8;
+}
+.box .front-side .view > div{
+    cursor: pointer;
+    width: fit-content;
+    padding: 10px;
+    color: var(--soft);
+    border: 2px solid var(--soft);
+    font-size: 20px;
+    z-index: 2;
+}
+.box .front-side .view > div:hover{
+    animation: colorized .3s ease-in 1 forwards;
+}
+
+@keyframes colorized {
+    100%{
+        background-color: var(--soft);
+        color: var(--red);
+    }
+}
+
+.box .front-side .description{
+    background: var(--soft);
+    position: absolute;
+    padding: 10px 20px;
+    bottom: -70px;
+    width: 100%;
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px 0;
+    transition: var(--transition);
+}
+.box .front-side .description .description-det{
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
+.box .front-side .description span{
+    display: flex;
+    align-items: center;
+}
+.box .front-side .description .name,
+.box .front-side .description .price{
+    font-size: 20px;
+    font-weight: bold;
+}
+.box .front-side .description .name{
+    width: 70%;
+    justify-content: flex-start;
+    color: var(--darkBlue);
+}
+.box .front-side .description .price{
+    color: var(--red);
+    width: 30%;
+    justify-content: flex-end;
+}
+.box .front-side .description .buy{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    border: 3px solid var(--darkBlue);
+    color: var(--blue);
+    font-size: 18px;
+    cursor: pointer;
+}
+.box .front-side .description .buy:hover{
+    animation: colorized-b .2s linear 1 forwards;
+}
+@keyframes colorized-b {
+    0%{
+        background: transparent;
+        border-color: var(--gold);
+        color: var(--blue);
+    }
+    100%{
+        background: var(--darkBlue);
+        color: var(--soft);
+        border-color: transparent;
+    }
+}
+.box:hover .front-side .photo img{
+    transform: scale(1.1);
+}
+.box:hover .front-side .view{
+    opacity: 1;
+}
+.box:hover .description{
+    bottom: 0;
+}
+
+.box .front-side .description h3{
+    width: 100%;
+    color: var(--gold);
+    font-size: 15px;
+    height: 20px;
+}
+.box .front-side .description .colors{
+    margin-top: 10px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px 0;
+    height: 60px;
+}
+.box .front-side .description .colors h4{
+    text-transform: uppercase;
+    color: var(--blue);
+    letter-spacing: 1px;
+}
+.box .front-side .description .colors div{
+    padding-left: 20px;
+    display: flex;
+    gap: 0 10px;
+}
+.box .front-side .description .colors div span{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: var(--green);
+    transition: 0.1s;
+    cursor: pointer;
+}
+.box .front-side .description .colors div span:hover{
+    transform: scale(1.1);
+}
+
+
+
+
+
+.box .back-side{
+    display: none;
+    width: 225px;
+    height: 340px;
+    transform: translate(25px,30px);
+    background-color: var(--soft);
+}
+.box .back-side span{
+    cursor: pointer;
+}
+.box .back-side > span:not(.back-side span:first-child){
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: var(--blue);
+    transition: var(--timing);
+}
+.box .back-side  span:nth-child(2){
+    left: -65px;
+}
+.box .back-side  span:last-child{
+    right: -65px;
+}
+
+.box:hover .back-side  span:nth-child(2){
+    left: -25px;
+}
+.box:hover .back-side  span:last-child{
+    right: -25px;
+}
+
+.box .back-side > span > i{
+    color: var(--soft);
+    font-size: 15px;
+}
+.box .back-side span:first-child{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.box .back-side span:first-child i{
+    color: var(--blue);
+    font-size: 30px;
+}
+.box .back-side .back-side-img{
+    width: 225px;
+    height: 340px;
+    overflow: hidden;
+}
+.box .back-side .back-side-img img{
+    width: 100%;
+    height: 70%;
+}
+.box .back-side .back-side-img img:not(.active){
+    display: none;
+}
+
+
+
+
+#goup{
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    right: 50px;
+    bottom: 20px;
+    background-color: var(--gold);
+    border-radius: 10px;
+    display: none;
+    z-index: 6;
+}
+#goup i{
+    color: var(--blue);
+    font-size: 30px;
+}
+@media (max-width: 768px){
+    #goup{
+        right: 20px;
+    }
+}
+.fav{
+    width: 100%;
+    height: 70px;
+    background: var(--body);
+    border-radius: 10px;
+    padding: 5px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: 1fr 1fr;
+    gap: 5px;
+}
+.fav div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    color: var(--soft);
+}
+.fav .img{
+    cursor: pointer;
+    grid-area: 1/1/3/2;
+    width: 60px;
+    height: 60px;
+}
+.fav .img img{
+    width: 50px;
+    height: 50px;
+    transition: var(--timing);
+}
+.fav .name{
+    grid-area: 1/2/2/3;
+    width: 150px;
+}
+.fav .price{
+    grid-area: 2/2/3/3;
+    letter-spacing: 1px;
+}
+.fav .del{
+    cursor: pointer;
+    grid-area: 1/3/2/4;
+}
+.fav .buy{
+    cursor: pointer;
+    grid-area: 2/3/3/4;
+    border-radius: 10px;
+}
+.fav .buy:hover{
+    animation: colorized 0.3s linear 1 forwards;
+}
